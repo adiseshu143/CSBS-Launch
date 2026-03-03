@@ -65,10 +65,10 @@
 @keyframes borderPulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.06);
+    box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.06);
   }
 }
 
@@ -78,7 +78,7 @@
 
 .launch-btn:hover {
   animation: none;
-  box-shadow: 0 0 50px rgba(249, 115, 22, 0.12);
+  box-shadow: 0 0 50px rgba(59, 130, 246, 0.12);
 }
 
 /* ── Launch click animations ─────────────────── */
@@ -136,12 +136,12 @@
   0% {
     transform: scale(1);
     opacity: 0.4;
-    border: 2px solid rgba(249, 115, 22, 0.4);
+    border: 2px solid rgba(59, 130, 246, 0.4);
   }
   100% {
     transform: scale(2.4);
     opacity: 0;
-    border: 2px solid rgba(249, 115, 22, 0);
+    border: 2px solid rgba(59, 130, 246, 0);
   }
 }
 
@@ -245,7 +245,7 @@
 .ambient-bubble {
   position: absolute;
   border-radius: 9999px;
-  background-color: rgba(249, 115, 22, 0.08);
+  background-color: rgba(59, 130, 246, 0.08);
   animation: ambientFloat ease-in-out infinite;
   pointer-events: none;
 }
