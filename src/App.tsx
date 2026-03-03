@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="relative min-h-dvh overflow-hidden bg-white">
       {/* Subtle vignette overlay */}
-      <div className="fixed inset-0 bg-orange-50/40 z-0" />
+      <div className="fixed inset-0 bg-blue-50/30 z-0" />
 
       {/* Particles */}
       <ParticleBackground />

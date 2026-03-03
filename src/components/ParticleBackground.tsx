@@ -9,6 +9,7 @@ interface Particle {
   opacity: number;
   pulse: number;
   pulseSpeed: number;
+  color: [number, number, number];
 }
 
 export default function ParticleBackground() {
@@ -31,16 +32,20 @@ export default function ParticleBackground() {
       canvas.height = window.innerHeight;
     };
 
-    const createParticle = (): Particle => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      size: Math.random() * 2 + 0.5,
-      opacity: Math.random() * 0.5 + 0.1,
-      pulse: Math.random() * Math.PI * 2,
-      pulseSpeed: Math.random() * 0.02 + 0.005,
-    });
+    const createParticle = (): Particle => {
+      const isBlue = Math.random() > 0.35;
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 0.5,
+        opacity: Math.random() * 0.5 + 0.1,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: Math.random() * 0.02 + 0.005,
+        color: isBlue ? [59, 130, 246] : [239, 68, 68],
+      };
+    };
 
     const init = () => {
       particles.length = 0;
@@ -66,7 +71,7 @@ export default function ParticleBackground() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(249, 115, 22, ${currentOpacity * 0.6})`;
+        ctx.fillStyle = `rgba(${p.color[0]}, ${p.color[1]}, ${p.color[2]}, ${currentOpacity * 0.6})`;
         ctx.fill();
       });
 
@@ -82,7 +87,7 @@ export default function ParticleBackground() {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(249, 115, 22, ${opacity * 0.5})`;
+            ctx.strokeStyle = `rgba(100, 100, 180, ${opacity * 0.5})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

@@ -40,8 +40,8 @@ export default function LoadingRedirect() {
       {/* Spinner */}
       <div className="relative mb-8 sm:mb-10 md:mb-14">
         <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-slate-200" />
-        <div className="absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-transparent border-t-orange-500 border-r-orange-300 animate-spin" />
-        <div className="absolute inset-2 sm:inset-2 md:inset-2.5 w-10 h-10 sm:w-12 sm:h-12 md:w-15 md:h-15 lg:w-20 lg:h-20 rounded-full border border-transparent border-b-orange-200 animate-spin-reverse" />
+        <div className="absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-2 border-transparent border-t-blue-500 border-r-blue-300 animate-spin" />
+        <div className="absolute inset-2 sm:inset-2 md:inset-2.5 w-10 h-10 sm:w-12 sm:h-12 md:w-15 md:h-15 lg:w-20 lg:h-20 rounded-full border border-transparent border-b-red-300 animate-spin-reverse" />
       </div>
 
       {/* Loading text */}
@@ -51,7 +51,7 @@ export default function LoadingRedirect() {
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
           Loading{" "}
-          <span className="text-orange-600 font-semibold">csbsvitb.in</span>
+          <span className="text-blue-600 font-semibold">csbsvitb.in</span>
           <span className="inline-block w-6 sm:w-8 md:w-10 text-left text-slate-400">
             {dots}
           </span>
@@ -62,7 +62,7 @@ export default function LoadingRedirect() {
           <div className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 mt-3 sm:mt-4 border rounded-full border-slate-200 bg-slate-50 backdrop-blur-sm fade-in-up shadow-sm">
             {/* Lock icon */}
             <svg
-              className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-orange-500"
+              className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-blue-500"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -82,7 +82,7 @@ export default function LoadingRedirect() {
       {/* Redirecting text */}
       {redirecting && (
         <div className="mt-8 sm:mt-10 md:mt-12 fade-in-up">
-          <p className="text-xs sm:text-sm md:text-base tracking-wider text-orange-400 uppercase">
+          <p className="text-xs sm:text-sm md:text-base tracking-wider text-red-400 uppercase">
             Redirecting now&hellip;
           </p>
         </div>

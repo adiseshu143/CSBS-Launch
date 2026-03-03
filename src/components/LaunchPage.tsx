@@ -79,7 +79,7 @@ export default function LaunchPage({ onLaunch }: LaunchPageProps) {
         style={{ animationDelay: launched ? "0.35s" : "0.2s" }}
       >
         <span className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs md:text-sm font-medium tracking-widest uppercase border rounded-full text-slate-500 border-slate-200 bg-white backdrop-blur-sm shadow-sm">
-          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-orange-500 animate-pulse" />
+          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-500 animate-pulse" />
           Ready to Launch
         </span>
       </div>
@@ -95,7 +95,7 @@ export default function LaunchPage({ onLaunch }: LaunchPageProps) {
         }}
       >
         <span className="text-slate-900">CSBS</span>
-        <span className="text-orange-500 mx-1.5 sm:mx-2 md:mx-3 font-light">
+        <span className="text-red-500 mx-1.5 sm:mx-2 md:mx-3 font-light">
           ×
         </span>
         <span className="text-slate-900">VITB</span>
@@ -122,10 +122,13 @@ export default function LaunchPage({ onLaunch }: LaunchPageProps) {
 
       {/* Divider line */}
       <div
-        className={`w-16 sm:w-20 md:w-24 lg:w-28 h-px mb-8 sm:mb-10 md:mb-12 bg-orange-200 fade-in-up ${
+        className={`w-16 sm:w-20 md:w-24 lg:w-28 h-0.5 mb-8 sm:mb-10 md:mb-12 fade-in-up ${
           launched ? "launch-exit-scale" : ""
         }`}
-        style={{ animationDelay: launched ? "0.1s" : "0.8s" }}
+        style={{
+          animationDelay: launched ? "0.1s" : "0.8s",
+          background: "linear-gradient(90deg, #3B82F6, #EF4444)",
+        }}
       />
 
       {/* Launch button — circular */}
@@ -164,12 +167,12 @@ export default function LaunchPage({ onLaunch }: LaunchPageProps) {
                     height: b.size,
                     backgroundColor:
                       b.id % 4 === 0
-                        ? "rgba(249, 115, 22, 0.7)"
+                        ? "rgba(59, 130, 246, 0.7)"
                         : b.id % 4 === 1
-                          ? "rgba(251, 146, 60, 0.6)"
+                          ? "rgba(96, 165, 250, 0.6)"
                           : b.id % 4 === 2
-                            ? "rgba(253, 186, 116, 0.55)"
-                            : "rgba(234, 88, 12, 0.65)",
+                            ? "rgba(147, 197, 253, 0.55)"
+                            : "rgba(37, 99, 235, 0.65)",
                     "--bx": `${b.x}px`,
                     "--by": `${b.y}px`,
                     "--bdrift": `${b.drift}px`,
@@ -184,13 +187,14 @@ export default function LaunchPage({ onLaunch }: LaunchPageProps) {
             onClick={handleClick}
             className={`launch-btn group relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 flex items-center justify-center transition-all duration-500 border-2 rounded-full cursor-pointer ${
               launched
-                ? "bg-orange-500 border-orange-500 text-white scale-90 launch-btn-confirmed"
-                : "text-slate-800 border-orange-300 bg-white hover:border-orange-500 hover:bg-orange-50 active:scale-95"
+                ? "border-blue-500 text-white scale-90 launch-btn-confirmed"
+                : "text-slate-800 border-blue-300 bg-white hover:border-blue-500 hover:bg-blue-50 active:scale-95"
             }`}
+            style={launched ? { background: "linear-gradient(135deg, #3B82F6, #6366F1)" } : undefined}
           >
             {/* Orbiting ring */}
             {!launched && (
-              <span className="absolute inset-[-4px] sm:inset-[-6px] md:inset-[-8px] rounded-full border border-orange-100 group-hover:border-orange-200 transition-colors duration-500" />
+              <span className="absolute inset-[-4px] sm:inset-[-6px] md:inset-[-8px] rounded-full border border-blue-100 group-hover:border-blue-200 transition-colors duration-500" />
             )}
 
             <span className="relative flex flex-col items-center gap-1.5 sm:gap-2 md:gap-3">
