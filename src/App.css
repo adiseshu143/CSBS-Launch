@@ -1,0 +1,251 @@
+/* ──────────────────────────────────────────────
+   ANIMATIONS — Launch Page Experience
+   ────────────────────────────────────────────── */
+
+/* Fade in + slide up (reused everywhere) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Launch page entrance */
+.launch-page-enter {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Countdown entrance */
+.countdown-enter {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Countdown exit — scale + fade */
+@keyframes countdownExit {
+  to {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(8px);
+  }
+}
+
+.countdown-exit {
+  animation: countdownExit 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Loading page entrance */
+.loading-enter {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Reverse spin for inner spinner ring */
+@keyframes spinReverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-spin-reverse {
+  animation: spinReverse 1.5s linear infinite;
+}
+
+/* Launch button subtle pulse */
+@keyframes borderPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.06);
+  }
+}
+
+.launch-btn {
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
+.launch-btn:hover {
+  animation: none;
+  box-shadow: 0 0 50px rgba(249, 115, 22, 0.12);
+}
+
+/* ── Launch click animations ─────────────────── */
+
+/* Elements slide up & fade out (heading, subtitle, badge) */
+@keyframes launchExitUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+.launch-exit-up {
+  animation: launchExitUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Bottom hint slides down */
+@keyframes launchExitDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.launch-exit-down {
+  animation: launchExitDown 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Divider scales to 0 width */
+@keyframes launchExitScale {
+  from {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  to {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+}
+
+.launch-exit-scale {
+  animation: launchExitScale 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Expanding ripple rings from button */
+@keyframes launchRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+    border: 2px solid rgba(249, 115, 22, 0.4);
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+    border: 2px solid rgba(249, 115, 22, 0);
+  }
+}
+
+.launch-ripple {
+  animation: launchRipple 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+/* Button confirmation — subtle scale bounce */
+@keyframes btnConfirmed {
+  0% {
+    transform: scale(0.9);
+  }
+  40% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.launch-btn-confirmed {
+  animation: btnConfirmed 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards !important;
+}
+
+/* Checkmark draw-in */
+@keyframes checkDraw {
+  from {
+    stroke-dashoffset: 30;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.launch-check {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  animation: checkDraw 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+/* ── Bubble burst on launch click ──────────── */
+
+@keyframes bubbleFloat {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  40% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+        calc(-50% + var(--bx) + var(--bdrift)),
+        calc(-50% + var(--by) - 80px)
+      )
+      scale(0.2);
+  }
+}
+
+.bubble-float {
+  pointer-events: none;
+  z-index: 50;
+  animation: bubbleFloat 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* ── Ambient floating bubbles (background) ─── */
+
+@keyframes ambientFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+.ambient-bubble {
+  position: absolute;
+  border-radius: 9999px;
+  background-color: rgba(249, 115, 22, 0.08);
+  animation: ambientFloat ease-in-out infinite;
+  pointer-events: none;
+}
